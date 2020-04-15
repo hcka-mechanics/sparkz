@@ -1,0 +1,19 @@
+name: compile-sparkz
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '9/5 * * * *'
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: sparkz rebuild quick
+      run: source     ./yuvroot
+  retest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: sparkz rebuild retest
+      run: .     ./yuvroot
